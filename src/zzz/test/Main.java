@@ -1,11 +1,12 @@
 package zzz.test;
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Main {
     public static void main(String[] args){
-        System.out.println("hello");
-        for(int i = 0; i< 10; i++){
-            if(i%2==0) continue;
-            System.out.println("hello " + i);
-        }
+        Set<Character> set = new HashSet<>();
+        set.add('4');
+        System.out.println(set.contains('4'));
     }
 }

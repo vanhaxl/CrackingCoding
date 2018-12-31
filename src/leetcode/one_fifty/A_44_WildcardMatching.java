@@ -2,8 +2,8 @@ package leetcode.one_fifty;
 
 public class A_44_WildcardMatching {
     public static void main(String[] args) {
-        String s = "aa";
-        String p = "aa";
+        String s = "a";
+        String p = "?";
         System.out.println(isMatch(s, p));
     }
 
