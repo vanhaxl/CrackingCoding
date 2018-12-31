@@ -2,7 +2,7 @@ package leetcode.one_fifty;
 
 import leetcode.one_fifty.common.ListNode;
 
-public class RemoveNthNodeFromEndOfList {
+public class A_19_RemoveNthNodeFromEndOfList {
     public static void main(String[] args) {
         ListNode a = new ListNode(1);
         a.next = new ListNode(2);
