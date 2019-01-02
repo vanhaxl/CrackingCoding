@@ -1,6 +1,6 @@
 package leetcode.one_fifty;
 
-import leetcode.one_fifty.common.ListNode;
+import leetcode.common.ListNode;
 
 public class A_19_RemoveNthNodeFromEndOfList {
     public static void main(String[] args) {
