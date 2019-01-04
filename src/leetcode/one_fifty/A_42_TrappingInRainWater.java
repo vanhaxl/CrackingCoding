@@ -8,24 +8,20 @@ public class A_42_TrappingInRainWater {
 
     public static int trap(int[] height) {
         int left = 0, right = height.length - 1;
-        int ans = 0;
-        int left_max = 0, right_max = 0;
+        int result = 0;
+        int maxHeight = 0;
         while (left < right) {
-            if (height[left] < height[right]) {
-                if (height[left] >= left_max)
-                    left_max = height[left];
-                else
-                    ans += (left_max - height[left]);
+            if (height[left] <= height[right]) {
+                maxHeight = Math.max(maxHeight, height[left]);
+                result += maxHeight - height[left];
                 left++;
             } else {
-                if (height[right] >= right_max)
-                    right_max = height[right];
-                else
-                    ans += (right_max - height[right]);
+                maxHeight = Math.max(maxHeight, height[right]);
+                result += maxHeight - height[right];
                 right--;
             }
         }
-        return ans;
+        return result;
 
     }
 }
