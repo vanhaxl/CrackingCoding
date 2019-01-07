@@ -1,25 +1,19 @@
 package zzz.test;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        Deque<Integer> a = new ArrayDeque<>();
-        a.push(1);
-        a.push(2);
-        a.push(4);
-        a.push(3);
-
-        System.out.println(a.poll());
-
-
-        Queue<Integer> q = new LinkedList<>();
-        q.add(5);
-        q.add(6);
-        q.add(7);
-        System.out.println(q.peek());
+        Comparator<Integer> comparator = new Comparator<Integer>() {
+            @Override
+            public int compare(Integer a, Integer b) {
+                return b-a;
+            }
+        };
+        TreeSet<Integer> set = new TreeSet<>(comparator);
+        set.add(3);
+        set.add(6);
+        set.add(0);
+        System.out.println(set.first());
     }
 }
