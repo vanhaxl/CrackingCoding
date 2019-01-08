@@ -1,46 +1,77 @@
 package leetcode.three00_three50;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
-class Node {
-    Node left, right;
-    int val, sum, dup = 1;
-
-    public Node(int v, int s) {
-        val = v;
-        sum = s;
-    }
-}
 
 public class A_315_CountofSmallerNumbersAfterSelf {
+    static int[] count;
+
     public static void main(String[] args) {
         int[] arr = {5, 2, 6, 1};
         System.out.println(countSmaller(arr));
     }
 
     public static List<Integer> countSmaller(int[] nums) {
-        Integer[] ans = new Integer[nums.length];
-        Node root = null;
-        for (int i = nums.length - 1; i >= 0; i--) {
-            root = insert(nums[i], root, ans, i, 0);
+        List<Integer> result = new ArrayList<>();
+
+        count = new int[nums.length];
+        int[] indexes = new int[nums.length];
+
+        for (int i = 0; i < nums.length; i++) {
+            indexes[i] = i;
         }
-        return Arrays.asList(ans);
+        mergeSort(nums, indexes, 0, nums.length - 1);
+
+        for (int i = 0; i < count.length; i++) {
+            result.add(count[i]);
+        }
+        return result;
     }
 
-    private static Node insert(int num, Node node, Integer[] ans, int i, int preSum) {
-        if (node == null) {
-            node = new Node(num, 0);
-            ans[i] = preSum;
-        } else if (node.val == num) {
-            node.dup++;
-            ans[i] = preSum + node.sum;
-        } else if (node.val > num) {
-            node.sum++;
-            node.left = insert(num, node.left, ans, i, preSum);
-        } else {
-            node.right = insert(num, node.right, ans, i, preSum + node.dup + node.sum);
-        }
-        return node;
+    private static void mergeSort(int[] nums, int[] indexes, int start, int end) {
+        if (end <= start) return;
+        int mid = (start + end) / 2;
+        mergeSort(nums, indexes, start, mid);
+        mergeSort(nums, indexes, mid + 1, end);
+        merge(nums, indexes, start, end);
     }
+
+    private static void merge(int[] nums, int[] indexes, int start, int end) {
+        int mid = (start + end) / 2;
+        int leftIndex = start;
+        int rightIndex = mid + 1;
+        int rightCount = 0;
+        int[] newIndexes = new int[end - start + 1];
+        int sortIndex = 0;
+        while (leftIndex <= mid && rightIndex <= end) {
+            if (nums[indexes[rightIndex]] < nums[indexes[leftIndex]]) {
+                newIndexes[sortIndex] = indexes[rightIndex];
+                rightCount++;
+                rightIndex++;
+            } else {
+                newIndexes[sortIndex] = indexes[leftIndex];
+                count[indexes[leftIndex]] += rightCount;
+                leftIndex++;
+            }
+            sortIndex++;
+        }
+        while (leftIndex <= mid) {
+            newIndexes[sortIndex] = indexes[leftIndex];
+            count[indexes[leftIndex]] += rightCount;
+            sortIndex++;
+            leftIndex++;
+        }
+
+        while (rightIndex <= end) {
+            newIndexes[sortIndex] = indexes[rightIndex];
+            sortIndex++;
+            rightIndex++;
+        }
+        for (int i = start; i <= end; i++) {
+            indexes[i] = newIndexes[i - start];
+        }
+    }
+
+
 }
