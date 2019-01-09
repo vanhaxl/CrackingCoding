@@ -1,7 +1,9 @@
 package leetcode.two00_two50;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class A_212_WordSearch {
     public static void main(String[] args) {
@@ -28,9 +30,11 @@ public class A_212_WordSearch {
 
     public static List<String> findWords(char[][] board, String[] words) {
         List<String> list = new ArrayList<>();
+        Set<String> set = new HashSet<>();
         for (String word : words) {
-            if (check(board, word)) {
-                if(!list.contains(word)){
+            if (!set.contains(word)) {
+                set.add(word);
+                if (check(board, word)) {
                     list.add(word);
                 }
             }
@@ -42,7 +46,7 @@ public class A_212_WordSearch {
         for (int i = 0; i < board.length; i++) {
             for (int j = 0; j < board[0].length; j++) {
                 if (s.charAt(0) == board[i][j]) {
-                    if(dfs(board, s, i, j, 0)){
+                    if (dfs(board, s, i, j, 0)) {
                         return true;
                     }
 
