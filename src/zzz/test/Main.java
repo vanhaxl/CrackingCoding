@@ -5,7 +5,7 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         List<String> list = new ArrayList<>();
-
+        list.add("partitionLast_trailer.txt");
         list.add("partition0_chunk0.txt");
         list.add("partition0_chunk1.txt");
         list.add("partition0_chunk200000.txt");
@@ -15,7 +15,7 @@ public class Main {
         list.add("partition10_chunk4.txt");
         list.add("partition100_chunk0.txt");
         list.add("partition100_chunk1.txt");
-        list.add("partition100_chunk2.txt");
+        list.add("partition10000_chunk2.txt");
         list.add("partition2_chunk0.txt");
         list.add("partition3_chunk0.txt");
         list.add("partition3_chunk1.txt");
