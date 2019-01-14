@@ -12,7 +12,8 @@ class Point {
 
 public class A_329_LongestIncreasingPathinaMatrix {
     public static void main(String[] args) {
-        int[][] arr = {{9, 9, 4},
+        int[][] arr = {
+                {9, 9, 4},
                 {6, 6, 8},
                 {2, 1, 1}};
         System.out.println(longestIncreasingPath(arr));
