@@ -24,3 +24,12 @@ public class A_84_LargestRectangleInHistogram {
         return maxarea;
     }
 }
+
+/*
+Given n non-negative integers representing the histogram's bar height where the width of each bar is 1,
+find the area of largest rectangle in the histogram.
+- use stack to store index of array. the height[i] in stack is alway increase
+- if we found a height <= height[peek], we calculate to pop it from stack then push again
+- special case: we loop all but stack still have value, we calcuate it
+
+ */
