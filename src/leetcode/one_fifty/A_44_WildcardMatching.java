@@ -36,6 +36,6 @@ public class A_44_WildcardMatching {
  * + dp[i][j] = true if:
  *      - s[i] == p[j] or p[j] == '?' && dp[i - 1][j - 1] = true
  *      - p[j] == '*' and (dp[i-1][j] == true || dp[i][j-1] == true)
- *          + dp[i-1][j]: * acts as empty string
- *          + dp[i][j - 1]: * acts as like any sequences
+ *          + dp[i-1][j]: * acts as any sequence
+ *          + dp[i][j - 1]: * acts as like empty
  */

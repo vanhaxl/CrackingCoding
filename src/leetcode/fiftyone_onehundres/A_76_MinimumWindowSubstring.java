@@ -33,7 +33,14 @@ public class A_76_MinimumWindowSubstring {
         }
         return result;
     }
-
-
-
 }
+
+/*
+Given a string S and a string T, find the minimum window in S which will contain all the characters in T in complexity O(n).
+- Use 2 pointers. left & right
+- User int arr[128] in order to store number of character in string t.
+- Move right pointer until we have a string that contains all characters in T
+- move left if that string still satify, store minLen and tempResult
+we loop from 0 -> s.length()-1;
+
+ */
