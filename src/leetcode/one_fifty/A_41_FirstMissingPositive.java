@@ -31,4 +31,6 @@ public class A_41_FirstMissingPositive {
 - a valid integer should be >= 1 and <= len
 - if we see a valid integer, swap it to its correct position if position is not correct
 - use loop to check if nums[i] != i+1 return i+1 which is the smallest number missing
+- time: O(n)
+- space: O(1)
  */
