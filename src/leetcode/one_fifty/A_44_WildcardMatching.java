@@ -8,38 +8,33 @@ public class A_44_WildcardMatching {
     }
 
     public static boolean isMatch(String s, String p) {
-        StringBuilder sb = new StringBuilder();
-        boolean previousStar = false;
-        for (int i = 0; i < p.length(); i++) {
-            if (p.charAt(i) == '*') {
-                if (previousStar == false) {
-                    previousStar = true;
-                    sb.append(p.charAt(i));
-                }
-            } else {
-                previousStar = false;
-                sb.append(p.charAt(i));
-            }
-        }
-        String pattern = sb.toString();
-        boolean[][] arr = new boolean[s.length() + 1][pattern.length() + 1];
-        arr[0][0] = true;
-        if(!pattern.isEmpty() && pattern.charAt(0) =='*') arr[0][1] = true;
-        return isMatchHelper(s, pattern, arr);
-    }
-
-    public static boolean isMatchHelper(String s, String p, boolean[][] arr) {
-        if (p.isEmpty()) return s.isEmpty();
-        if (s.isEmpty()) return p.equals("*");
-        for (int i = 1; i < arr.length; i++) {
-            for (int j = 1; j < arr[0].length; j++) {
-                if (s.charAt(i - 1) == p.charAt(j - 1) || p.charAt(j - 1) == '?') {
-                    arr[i][j] = arr[i-1][j - 1];
-                } else if (p.charAt(j - 1) == '*') {
-                    arr[i][j] = arr[i][j - 1] || arr[i - 1][j];
+        int m = s.length();
+        int n = p.length();
+        boolean[][] dp = new boolean[m + 1][n + 1];
+        dp[0][0] = true;
+        for (int i = 1; i <= n && p.charAt(i - 1) == '*'; i++)
+            dp[0][i] = true;
+        for (int i = 1; i <= m; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (s.charAt(i - 1) == p.charAt(j - 1) || p.charAt(j - 1) == '?')
+                    dp[i][j] = dp[i - 1][j - 1];
+                else if (p.charAt(j - 1) == '*') {
+                    dp[i][j] = dp[i - 1][j] || dp[i][j - 1];
                 }
             }
         }
-        return arr[arr.length - 1][arr[0].length - 1];
+        return dp[m][n];
     }
 }
+
+/*
+ * dp[0][0]: both are empty --> true
+ * + First row: dp[0][j] = true if p starts with *, otherwise false
+ * + First Column: dp[i][0] always false as p is empty
+ *
+ * + dp[i][j] = true if:
+ *      - s[i] == p[j] or p[j] == '?' && dp[i - 1][j - 1] = true
+ *      - p[j] == '*' and (dp[i-1][j] == true || dp[i][j-1] == true)
+ *          + dp[i-1][j]: * acts as empty string
+ *          + dp[i][j - 1]: * acts as like any sequences
+ */
