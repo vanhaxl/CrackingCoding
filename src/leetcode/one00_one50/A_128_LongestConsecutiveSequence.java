@@ -29,3 +29,10 @@ public class A_128_LongestConsecutiveSequence {
         return max;
     }
 }
+/*
+    given an array, find maximum length of contigous sequence , return the lenght
+    - use set to store all elements
+    - if set not contains the previous of an element. we start count by while(set.contains(current +1))
+    - after finish, use max = Math.max(max, count+1) // count + 1 because we start from count = 0, we
+    not calculate the 1st one yet.
+ */
