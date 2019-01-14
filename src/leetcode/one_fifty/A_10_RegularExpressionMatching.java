@@ -28,7 +28,9 @@ public class A_10_RegularExpressionMatching {
     }
 }
 
-/*
+
+/* top -> down: String
+ * left -> right: pattern
  * + dp[0][0] = true as both are empty
  * + dp[0][j] = true if p looks sth like: a*b*...
  *

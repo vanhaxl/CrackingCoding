@@ -27,7 +27,8 @@ public class A_44_WildcardMatching {
     }
 }
 
-/*
+/* top -> down: string
+ * left -> right: pattern
  * dp[0][0]: both are empty --> true
  * + First row: dp[0][j] = true if p starts with *, otherwise false
  * + First Column: dp[i][0] always false as p is empty
