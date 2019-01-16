@@ -32,6 +32,10 @@ public class A_340_LongestSubstringwithAtMostKDistinctCharacters {
         }
         return max;
     }
-
-
 }
+
+/*
+Given a string, find the length of the longest substring T that contains at most k distinct characters.
+User two pointer: left, right start from zero. Maintain a variable count, when add & counter[char] = 1, count++
+when remove & counter[char] = 0 count --
+ */

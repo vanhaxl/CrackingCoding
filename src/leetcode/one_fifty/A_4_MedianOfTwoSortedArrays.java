@@ -10,7 +10,7 @@ public class A_4_MedianOfTwoSortedArrays {
     public static double findMedianSortedArrays(int[] a, int[] b) {
         int m = a.length;
         int n = b.length;
-        if (m > n) {
+        if (m > n) { // tai sao a length phai nho hon b length
             int[] temp = a;
             a = b;
             b = temp;

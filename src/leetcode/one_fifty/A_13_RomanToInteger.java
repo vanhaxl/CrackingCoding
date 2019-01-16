@@ -18,7 +18,7 @@ public class A_13_RomanToInteger {
     }
 
     public static void main(String[] args) {
-        String s = "LVIII";
+        String s = "IIX";
         System.out.println(romanToInt(s));
     }
 
@@ -35,3 +35,10 @@ public class A_13_RomanToInteger {
         return result;
     }
 }
+
+/*
+thang truoc nho hon thang sau thi -, con lai +
+ko bao gio co IIX nen ko co vu 2 thang bang nhau -
+char[i] < char[i+1] thi -
+char[i] >= char[i+1] thi +
+ */

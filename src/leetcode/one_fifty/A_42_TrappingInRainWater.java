@@ -27,6 +27,9 @@ public class A_42_TrappingInRainWater {
 }
 
 /*
+Given n non-negative integers representing an elevation map where the width of each bar is 1,
+compute how much water it is able to trap after raining.
+
 For each element in the array, we find the maximum level of water
 it can trap after the rain, which is equal to the minimum of 2 maximum height
 of bars on both the sides minus its own height.
@@ -35,3 +38,4 @@ Solution 2: use stack
 - use stack to push index of elements
 - If height[current] > height[top], calculate
  */
+

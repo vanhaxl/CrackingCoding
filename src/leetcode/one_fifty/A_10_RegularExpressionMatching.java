@@ -2,8 +2,8 @@ package leetcode.one_fifty;
 
 public class A_10_RegularExpressionMatching {
     public static void main(String[] args) {
-        String s = "aa";
-        String p = "a*";
+        String s = "ab";
+        String p = "ab****";
         System.out.println(isMatch(s, p));
     }
 
