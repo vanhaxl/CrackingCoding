@@ -2,15 +2,15 @@ package leetcode.one_fifty;
 
 public class A_4_MedianOfTwoSortedArrays {
     public static void main(String[] args) {
-        int[] arr = {1, 2, 4, 5};
-        int[] arr2 = {3, 5, 6, 7};
+        int[] arr2 = {1, 2, 4, 5};
+        int[] arr = {3, 5, 6, 7, 8, 9};
         System.out.println(findMedianSortedArrays(arr, arr2)); //1, 2, 3, 4, 5, 5, 6, 7
     }
 
     public static double findMedianSortedArrays(int[] a, int[] b) {
         int m = a.length;
         int n = b.length;
-        if (m > n) { // tai sao a length phai nho hon b length
+        if (m > n) { // tai sao a length phai nho hon b length. Boi vi index out of bound
             int[] temp = a;
             a = b;
             b = temp;
@@ -21,8 +21,8 @@ public class A_4_MedianOfTwoSortedArrays {
 
         int iMin = 0, iMax = m, halfLen = (m + n + 1) / 2;
         while (iMin < iMax) {
-            int i = (iMin + iMax) / 2;
-            int j = halfLen - i;
+            int i = (iMin + iMax) / 2; // i for array a
+            int j = halfLen - i; // j for array b // the purpose is to find a suitable i, j, all the left size is small
 
             if (i < iMax && b[j - 1] > a[i]) { // i is too small. try to make a[i] > b[j-1]
                 iMin = i + 1;
