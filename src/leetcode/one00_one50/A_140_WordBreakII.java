@@ -17,7 +17,7 @@ public class A_140_WordBreakII {
         System.out.println(wordBreak(s, wordDict));
     }
     public static List<String> wordBreak(String s, List<String> wordDict) {
-        return dfs(s, wordDict, new HashMap<String, LinkedList<String>>());
+        return dfs(s, wordDict, new HashMap<>());
     }
 
     public static List<String> dfs(String s, List<String> wordDict, HashMap<String, LinkedList<String>> map){

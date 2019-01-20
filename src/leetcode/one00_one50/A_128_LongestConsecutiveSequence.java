@@ -35,4 +35,18 @@ public class A_128_LongestConsecutiveSequence {
     - if set not contains the previous of an element. we start count by while(set.contains(current +1))
     - after finish, use max = Math.max(max, count+1) // count + 1 because we start from count = 0, we
     not calculate the 1st one yet.
+
+    Time: O(n)
+    Space: O(n)
  */
+
+/*
+approach 2:
+    - sort array
+    - count if(nums[i] == nums[i+1] -1) count ++;
+    - return max count;
+    Time: O(nlogn)
+    Space: O(1)
+ */
+
+
