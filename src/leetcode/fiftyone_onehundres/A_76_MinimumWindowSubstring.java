@@ -20,12 +20,13 @@ public class A_76_MinimumWindowSubstring {
 
         for(int i = 0; i < s.length(); i++) {
             arr[s.charAt(i)]--;
-            if(arr[s.charAt(i)] >= 0) count++;
-            while(count == t.length()) {
+            if(arr[s.charAt(i)] >= 0) count++; // >= , not > because duplicate (s="aa", t = "aa")
+            while(count == t.length()) { // substring contains all characters int t
                 if(minLen > i - left + 1) {
                     minLen = i - left + 1;
                     result = s.substring(left, left+minLen);
                 }
+                //move left to right
                 arr[s.charAt(left)]++;
                 if(arr[s.charAt(left)] > 0) count--;
                 left++;
