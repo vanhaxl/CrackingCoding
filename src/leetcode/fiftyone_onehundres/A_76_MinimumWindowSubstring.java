@@ -3,7 +3,7 @@ package leetcode.fiftyone_onehundres;
 public class A_76_MinimumWindowSubstring {
     public static void main(String[] args){
         String s = "ADOBECODEBANC";
-        String t = "AABC";
+        String t = "ABC";
         System.out.println(minWindow(s, t));
     }
 

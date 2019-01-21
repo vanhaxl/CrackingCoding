@@ -16,7 +16,7 @@ public class A_269_AlienDictionary {
     }
 
     public static String alienOrder(String[] words) {
-        Map<Character, Set<Character>> map = new HashMap<>();
+        Map<Character, Set<Character>> map = new HashMap<>();// character and set of character follow key character
         Map<Character, Integer> degree = new HashMap<>(); // can use int[26] to optimize;
 
         StringBuilder result = new StringBuilder();

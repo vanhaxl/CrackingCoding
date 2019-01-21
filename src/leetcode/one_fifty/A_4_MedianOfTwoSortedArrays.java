@@ -2,8 +2,10 @@ package leetcode.one_fifty;
 
 public class A_4_MedianOfTwoSortedArrays {
     public static void main(String[] args) {
-        int[] arr2 = {1, 2, 4, 5};
-        int[] arr = {3, 5, 6, 7, 8, 9};
+//        int[] arr2 = {1, 2, 4, 5};
+//        int[] arr = {3, 5, 6, 7, 8, 9};
+        int[] arr2 = {1, 3};
+        int[] arr = {2};
         System.out.println(findMedianSortedArrays(arr, arr2)); //1, 2, 3, 4, 5, 5, 6, 7
     }
 
@@ -20,7 +22,7 @@ public class A_4_MedianOfTwoSortedArrays {
         }
 
         int iMin = 0, iMax = m, halfLen = (m + n + 1) / 2;
-        while (iMin < iMax) {
+        while (iMin <= iMax) {
             int i = (iMin + iMax) / 2; // i for array a
             int j = halfLen - i; // j for array b // the purpose is to find a suitable i, j, all the left size is small
 

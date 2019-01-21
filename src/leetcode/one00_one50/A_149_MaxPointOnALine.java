@@ -48,9 +48,9 @@ public class A_149_MaxPointOnALine {
                     m.put(y, 1);
                     map.put(x, m);
                 }
-                max = Math.max(max, map.get(x).get(y));
+                max = Math.max(max, map.get(x).get(y)); // max point di qua 1 diem i
             }
-            result = Math.max(result, max + overlap + 1);
+            result = Math.max(result, max + overlap + 1); // max point di qua diem bat ky
         }
         return result;
 

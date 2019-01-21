@@ -23,7 +23,8 @@ class MedianFinder {
         if (max.size() == min.size()) return (max.peek() + min.peek()) / 2.0;
         else return max.peek();
     }
-};
+
+}
 
 public class A_295_FindMedianFromDataStream {
     public static void main(String[] args) {
