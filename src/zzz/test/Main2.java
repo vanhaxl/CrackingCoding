@@ -5,7 +5,8 @@ import java.util.Arrays;
 public class Main2 {
     public static void main(String[] args) {
 
-        System.out.println(hammingWeight(0b11111111111111111111111111111101));
+        char a = 'a';
+        System.out.println(a-'a');
     }
 
     public static int hammingWeight(int n) {
