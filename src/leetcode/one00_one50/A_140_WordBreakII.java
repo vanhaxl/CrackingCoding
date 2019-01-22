@@ -1,5 +1,6 @@
 package leetcode.one00_one50;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -20,11 +21,11 @@ public class A_140_WordBreakII {
         return dfs(s, wordDict, new HashMap<>());
     }
 
-    public static List<String> dfs(String s, List<String> wordDict, HashMap<String, LinkedList<String>> map){
+    public static List<String> dfs(String s, List<String> wordDict, HashMap<String, List<String>> map){
         if(map.containsKey(s)){
             return map.get(s);
         }
-        LinkedList<String> res = new LinkedList<>();
+        List<String> res = new ArrayList<>();
         if(s.length() == 0){
             res.add("");
             return res;
