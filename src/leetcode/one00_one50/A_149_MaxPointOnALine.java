@@ -37,12 +37,8 @@ public class A_149_MaxPointOnALine {
                 }
 
                 if (map.containsKey(x)) {
-                    if (map.get(x).containsKey(y)) {
-                        map.get(x).put(y, map.get(x).get(y) + 1);
-                    }
-                    else {
-                        map.get(x).put(y, 1);
-                    }
+                    Map<Integer, Integer> yMap = map.get(x);
+                    yMap.put(y, yMap.getOrDefault(y, 0) + 1);
                 } else {
                     Map<Integer, Integer> m = new HashMap<>();
                     m.put(y, 1);

@@ -2,10 +2,6 @@ package leetcode.one_fifty;
 
 import leetcode.common.ListNode;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-
 public class A_23_MergeKSortedList {
     public static void main(String[] args) {
         ListNode l1 = new ListNode(1);
