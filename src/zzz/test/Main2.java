@@ -4,17 +4,10 @@ import java.util.Arrays;
 
 public class Main2 {
     public static void main(String[] args) {
+        int[] arr = {1, 6, 8, 9};
+        Arrays.sort(arr);
+        System.out.println(Arrays.toString(arr));
+        System.out.println(Arrays.binarySearch(arr, 5));
 
-        char a = 'a';
-        System.out.println(a-'a');
-    }
-
-    public static int hammingWeight(int n) {
-        int count = 0;
-        while(n!= 0){
-            if((n & 1) == 1) count ++;
-            n = n>>1;
-        }
-        return count;
     }
 }

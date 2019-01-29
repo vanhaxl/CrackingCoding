@@ -1,4 +1,4 @@
-package chapter1;
+package crackbook.chapter1;
 
 public class Q1_IsUnique {
     public static void main(String[] args){
