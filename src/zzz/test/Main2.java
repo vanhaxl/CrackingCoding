@@ -1,39 +1,35 @@
 package zzz.test;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Main2 {
     public static void main(String[] args) {
-//        Set<String> set = new HashSet<>();
-//        for (int i = 0; i < 5000000; i++) {
-//            set.add("1234567890123456" + i);
-//        }
-//
-//        List<String> result = new ArrayList<>();
-//
-//
-//        for (int i = 0; i < 5000000; i++) {
-//            if(set.contains("1234567890123456" + i))
-//                result.add("1234567890123456" + i);
-//        }
-//
-//        for (String x : set) {
-//            System.out.println(x);
-//        }
-//
-//        System.out.println(result.size());
+        int x = 1024;
+        int y = 1;
+        System.out.println((int)(Math.log(10)/Math.log(3)));
+        //System.out.println(brokenCalc(x, y));
+    }
 
-//        String s = "40000000009902446999100000000000000006279000000000000000000000104077771692000000400460+0000010000        2019030094515000000000000000000000000000000000                         0000000000N                                                        0000000000000000840               0059                                                                                                                                                                                    00000000000000137681775154800076                                                                                                          ";
-//        System.out.println(s.substring(475, 493));
-
-        List<String> list = new ArrayList<>();
-        list.add("van");
-        list.add("ha");
-        list.add("nguyen");
-        list.add(0, "abc");
-        System.out.println(list.toString());
+    public static int brokenCalc(int x, int y) {
+        if (x == y) return 0;
+        Queue<Integer> queue = new LinkedList<>();
+        queue.add(x);
+        int count = 0;
+        while (!queue.isEmpty()) {
+            int size = queue.size();
+            for (int i = 0; i < size; i++) {
+                int tmp = queue.poll();
+                if (tmp == y) return count;
+                else if (tmp < y) {
+                    if (tmp >= y / 2)
+                        queue.add(tmp - 1);
+                    queue.add(tmp * 2);
+                } else {
+                    return count + tmp - y;
+                }
+            }
+            count++;
+        }
+        return count;
     }
 }
