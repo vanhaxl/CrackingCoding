@@ -5,7 +5,7 @@ import java.util.List;
 
 public class A_784_LetterCasePermutation {
     public static void main(String[] args) {
-        String s = "3z4";
+        String s = "a1b2";
         System.out.println(letterCasePermutation(s));
     }
 
