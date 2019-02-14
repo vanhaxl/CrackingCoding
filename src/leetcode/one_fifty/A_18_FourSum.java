@@ -14,12 +14,12 @@ public class A_18_FourSum {
         List<List<Integer>> result = new ArrayList<>();
         int len = nums.length;
         Arrays.sort(nums);
-        for (int i = 0; i < nums.length - 3; i++) {
+        for (int i = 0; i < nums.length - 3; i++) {  //n
             if (i > 0 && nums[i] == nums[i - 1]) continue;
             if (nums[i] + nums[len - 3] + nums[len - 2] + nums[len - 1] < target) continue;
             if (nums[i] + nums[i + 1] + nums[i + 2] + nums[i + 3] > target) break;
             int remainForThree = target - nums[i];
-            for (int j = i + 1; j < nums.length - 2; j++) {
+            for (int j = i + 1; j < nums.length - 2; j++) {  //n
                 if (j > i + 1 && nums[j] == nums[j - 1]) continue;
                 if (nums[j] + nums[len - 2] + nums[len - 1] < remainForThree) continue;
                 if (nums[j] + nums[j + 1] + nums[j + 2] > remainForThree) break;

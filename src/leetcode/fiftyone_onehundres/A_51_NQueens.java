@@ -1,4 +1,4 @@
-package leetcode.one_fifty;
+package leetcode.fiftyone_onehundres;
 
 import java.util.ArrayList;
 import java.util.List;
