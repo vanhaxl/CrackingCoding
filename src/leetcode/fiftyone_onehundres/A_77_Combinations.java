@@ -11,19 +11,23 @@ public class A_77_Combinations {
     public static List<List<Integer>> combine(int n, int k) {
         List<List<Integer>> result = new ArrayList<>();
         List<Integer> tempList = new ArrayList<>();
-        backtrack(result, tempList, n, k, 1);
+        boolean[] visited = new boolean[n];
+        backtrack(result, tempList, n, k, 1, visited);
         return result;
     }
 
-    public static void backtrack(List<List<Integer>> result, List<Integer> tempList, int n, int k, int start) {
-        if(k == 0){
+    public static void backtrack(List<List<Integer>> result, List<Integer> tempList, int n, int k, int start, boolean[] visited) {
+        if (k == 0) {
             result.add(new ArrayList<>(tempList));
             return;
         }
-        for(int i = start; i<= n; i++){
-            if(tempList.contains(i)) continue;
+
+        for (int i = start; i <= n; i++) {
+            if (visited[i - 1]) continue;
             tempList.add(i);
-            backtrack(result, tempList, n, k-1, i+1);
+            visited[i - 1] = true;
+            backtrack(result, tempList, n, k - 1, i + 1, visited);
+            visited[i - 1] = false;
             tempList.remove(tempList.size() - 1);
         }
     }
