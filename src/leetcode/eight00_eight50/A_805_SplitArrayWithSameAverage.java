@@ -35,14 +35,14 @@ public class A_805_SplitArrayWithSameAverage {
         int g = gcd(S, N);
         Point mu = new Point(-(S / g), N / g);
         // A[i] -> fracAdd(A[i], mu)
-        List<Point> A2 = new ArrayList();
+        List<Point> A2 = new ArrayList<>();
         for (int x : A)
             A2.add(fracAdd(new Point(x, 1), mu));
 
-        Set<Point> left = new HashSet();
+        Set<Point> left = new HashSet<>();
         left.add(A2.get(0));
         for (int i = 1; i < N / 2; ++i) {
-            Set<Point> left2 = new HashSet();
+            Set<Point> left2 = new HashSet<>();
             Point z = A2.get(i);
             left2.add(z);
             for (Point p : left) {
@@ -54,10 +54,10 @@ public class A_805_SplitArrayWithSameAverage {
 
         if (left.contains(new Point(0, 1))) return true;
 
-        Set<Point> right = new HashSet();
+        Set<Point> right = new HashSet<>();
         right.add(A2.get(N - 1));
         for (int i = N / 2; i < N - 1; ++i) {
-            Set<Point> right2 = new HashSet();
+            Set<Point> right2 = new HashSet<>();
             Point z = A2.get(i);
             right2.add(z);
             for (Point p : right) {

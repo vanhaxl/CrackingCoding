@@ -1,66 +1,64 @@
 package leetcode.three00_three50;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-
 class TreeNode {
-    int val;
-    int duplicate;
-    int leftSize;
-    TreeNode left, right;
+	int val;
+	int duplicate;
+	int leftSize;
+	TreeNode left, right;
 
-    public TreeNode(int val, int dup, int leftSize) {
-        this.val = val;
-        this.duplicate = dup;
-        this.leftSize = leftSize;
-    }
+	public TreeNode(int val, int dup, int leftSize) {
+		this.val = val;
+		this.duplicate = dup;
+		this.leftSize = leftSize;
+	}
 
 }
 
 public class A_315_CountofSmallerNumbersAfterSelf {
 
-    public static void main(String[] args) {
-        int[] arr = {5, 2, 6, 1};
-        System.out.println(countSmaller(arr));
-    }
+	public static void main(String[] args) {
+		int[] arr = { 5, 2, 6, 1 };
+		System.out.println(countSmaller(arr));
+	}
 
-    static int ans;
+	static int ans;
 
-    public static List<Integer> countSmaller(int[] nums) {
-        TreeNode root = null;
-        List<Integer> list = new LinkedList<>();
-        for(int i = nums.length -1; i>= 0; i--){
-            ans = 0;
-            root = insert(root, nums[i]);
-            list.add(0, ans);
-        }
-        return list;
-    }
+	public static List<Integer> countSmaller(int[] nums) {
+		TreeNode root = null;
+		List<Integer> list = new LinkedList<>();
+		for (int i = nums.length - 1; i >= 0; i--) {
+			ans = 0;
+			root = insert(root, nums[i]);
+			list.add(0, ans);
+		}
+		return list;
+	}
 
-    public static TreeNode insert(TreeNode root, int val){
-        if(root == null) return new TreeNode(val, 1, 0);
-        if(val > root.val){
-            root.right = insert(root.right, val);
-            ans += root.duplicate + root.leftSize; //turn right, add dup and left size to ans
-        } else if(val < root.val){
-            root.left = insert(root.left, val);
-            root.leftSize ++;
-        } else{
-            root.duplicate ++;
-            ans += root.leftSize;
-        }
-        return root;
-    }
+	public static TreeNode insert(TreeNode root, int val) {
+		if (root == null)
+			return new TreeNode(val, 1, 0);
+		if (val > root.val) {
+			root.right = insert(root.right, val);
+			ans += root.duplicate + root.leftSize; // turn right, add dup and left size to ans
+		} else if (val < root.val) {
+			root.left = insert(root.left, val);
+			root.leftSize++;
+		} else {
+			root.duplicate++;
+			ans += root.leftSize;
+		}
+		return root;
+	}
 
-    /*Solution BST:
-    - track the number of element smaller than the current node
-- count total number of element smaller than the current node while inserting value into the tree
-- time complexity: O(nlogn)
-- Space complexity: O(k) K: # of unique element
-     */
-
+	/*
+	 * Solution BST: - track the number of element smaller than the current node -
+	 * count total number of element smaller than the current node while inserting
+	 * value into the tree - time complexity: O(nlogn) - Space complexity: O(k) K: #
+	 * of unique element
+	 */
 
 // Solution : Merge Sort
 //    public static List<Integer> countSmaller(int[] nums) {
@@ -124,12 +122,10 @@ public class A_315_CountofSmallerNumbersAfterSelf {
 //        }
 //    }
 
-
 }
 
 /*
-
-Solution 1: merge sort
-Solution 2: Binary Search Tree
-
+ * 
+ * Solution 1: merge sort Solution 2: Binary Search Tree
+ * 
  */
