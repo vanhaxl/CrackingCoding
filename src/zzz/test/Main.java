@@ -52,7 +52,6 @@ public class Main {
                 }
             }
         };
-
         Collections.sort(list, comparator);
         System.out.println(list);
 
