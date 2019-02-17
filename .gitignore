@@ -1,3 +1,5 @@
 .idea/
 out/
 CrackingCoding.iml
+.classpath
+.project

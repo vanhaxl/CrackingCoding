@@ -1,4 +1,4 @@
-package leetcode.five00_five26;
+package leetcode.five00_five50;
 
 public class A_526_BeautifulArrangement {
     static int count = 0;
