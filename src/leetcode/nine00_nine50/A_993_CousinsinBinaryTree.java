@@ -1,11 +1,9 @@
-package nine00_nine50;
-
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Queue;
+package leetcode.nine00_nine50;
 
 import leetcode.common.TreeNode;
+
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class A_993_CousinsinBinaryTree {
 	public static void main(String[] args) {

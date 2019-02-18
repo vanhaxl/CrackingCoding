@@ -1,4 +1,4 @@
-package nine00_nine50;
+package leetcode.nine00_nine50;
 
 public class A_994_RottingOranges {
 	public static void main(String[] args) {

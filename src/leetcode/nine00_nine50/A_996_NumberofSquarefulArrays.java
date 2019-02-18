@@ -1,4 +1,4 @@
-package nine00_nine50;
+package leetcode.nine00_nine50;
 
 import java.util.ArrayList;
 import java.util.Arrays;
