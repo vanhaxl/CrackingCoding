@@ -23,7 +23,7 @@ public class A_2_AddTwoNumbers {
         while (l1 != null || l2 != null) {
             int a = l1 == null ? 0 : l1.val;
             int b = l2 == null ? 0 : l2.val;
-            sum = a + b + remember;
+            sum = a + b +remember;
             value = sum % 10;
             remember = sum / 10;
             tmp.next = new ListNode(value);

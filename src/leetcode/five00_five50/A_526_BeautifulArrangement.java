@@ -21,8 +21,8 @@ public class A_526_BeautifulArrangement {
                 visited[i] = true;
                 backtrack(n, pos + 1, visited);
                 visited[i] = false;
-                
-                
+
+
             }
         }
     }
