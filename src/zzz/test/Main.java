@@ -1,10 +1,27 @@
 package zzz.test;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
-        String s = "40000000009902446999100000000000000006279000000000000000000000107077771692000000702105+0000010000        2019031124832000000000000000000000000000000000                         0000000000N                                                        0000000000000000840               005936634                                                                                                                                                                               00000000000000137681885127660057                                                                                                          \n";
-        String result = s.substring(62, 81);
-        System.out.println(result);
+        int[] nums = {9, 1, 2, 5, 8, 3};
+        int[] result = maxArray(nums, 5);
+        System.out.println(Arrays.toString(result));
     }
+
+    // use stack is easier to understand, but stack is slower than array ^^
+    public static int[] maxArray(int[] nums, int k) {
+        int n = nums.length;
+        int[] ans = new int[k];
+
+        for (int i = 0, j = 0; i < n; ++i) {
+            while (n - i + j > k && j > 0 && ans[j - 1] < nums[i]) {
+                j--;
+            }
+            if (j < k) ans[j++] = nums[i];
+        }
+        return ans;
+    }
+
 
 }
