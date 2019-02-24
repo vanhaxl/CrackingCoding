@@ -39,6 +39,7 @@ Example 2:
 
 Input: K = 2, N = 6
 Output: 3
+
 Example 3:
 
 Input: K = 3, N = 14

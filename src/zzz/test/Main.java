@@ -4,23 +4,8 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        int[] nums = {9, 1, 2, 5, 8, 3};
-        int[] result = maxArray(nums, 5);
-        System.out.println(Arrays.toString(result));
-    }
-
-    // use stack is easier to understand, but stack is slower than array ^^
-    public static int[] maxArray(int[] nums, int k) {
-        int n = nums.length;
-        int[] ans = new int[k];
-
-        for (int i = 0, j = 0; i < n; ++i) {
-            while (n - i + j > k && j > 0 && ans[j - 1] < nums[i]) {
-                j--;
-            }
-            if (j < k) ans[j++] = nums[i];
-        }
-        return ans;
+        String s = "40000000009902446999100000000000000006279000000000000000000000100177771692000000102105+0000005000        2019051050744000000000000000000000000000000012                         0000000000N                                                        0000000000000000840               005936634                                                                                                                                                                               00000000000001376997526452800680                                                                                                          \n";
+        System.out.println(s.substring(461, 493).replaceFirst("^0*", ""));
     }
 
 
