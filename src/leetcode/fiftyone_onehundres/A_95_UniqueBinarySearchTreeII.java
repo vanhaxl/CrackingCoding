@@ -33,6 +33,7 @@ public class A_95_UniqueBinarySearchTreeII {
                     root.left = left;
                     root.right = right;
                     result.add(root);
+
                 }
             }
         }
