@@ -1,6 +1,7 @@
 package zzz.test;
 
 public class Main2 {
+    //ttest branch
     public static void main(String[] args) {
         for(int i = 1; i<= 100; i++){
             if(checkPrime(i)){
