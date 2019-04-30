@@ -1,50 +1,35 @@
 package leetcode.one_fifty;
 
 public class A_5_LongestPalindromicSubstring {
+    private static int maxLen = 0;
+    private static String result = "";
+
     public static void main(String[] args) {
         String s = "cbbd";
         System.out.println(longestPalindrome(s));
     }
 
     public static String longestPalindrome(String s) {
-        int max = 0;
-        String result = "";
+        maxLen = 0;
+        result = "";
         for (int i = 0; i < s.length(); i++) {
-
-            String tmp = longestPalindromeHelper(s, i);
-            if (tmp.length() > max) {
-                max = tmp.length();
-                result = tmp;
-            }
-            String tmp2 = longestPalindromeHelper2(s, i);
-            if (tmp2.length() > max) {
-                max = tmp2.length();
-                result = tmp2;
-            }
+            longestPalindromeHelper(s, i - 1, i + 1);
+            longestPalindromeHelper(s, i, i + 1);
         }
         return result;
     }
 
-    public static String longestPalindromeHelper(String s, int i) {
-        int len = 1;
-        int left = i - 1, right = i + 1;
-        while (left >= 0 && right <= s.length() - 1 && s.charAt(left) == s.charAt(right)) {
-            len += 2;
-            left--;
-            right++;
-        }
-        return s.substring(left + 1, right);
-    }
+    public static void longestPalindromeHelper(String s, int left, int right) {
 
-    public static String longestPalindromeHelper2(String s, int i) {
-        int len = 0;
-        int left = i, right = i + 1;
         while (left >= 0 && right <= s.length() - 1 && s.charAt(left) == s.charAt(right)) {
-            len += 2;
             left--;
             right++;
         }
-        return s.substring(left + 1, right);
+
+        if (right - left > maxLen) {
+            maxLen = right - left;
+            result = s.substring(left + 1, right);
+        }
     }
 }
 
