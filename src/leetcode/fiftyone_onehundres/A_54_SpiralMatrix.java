@@ -15,6 +15,8 @@ public class A_54_SpiralMatrix {
 			return list;
 		// k start row
 		// l start col
+		// m row
+		// n cols
 		int k = 0, l = 0, m = arr.length, n = arr[0].length;
 		while (k < m && l < n) {
 			for (int i = l; i < n; i++) { // go right
