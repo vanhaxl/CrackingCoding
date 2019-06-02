@@ -33,3 +33,8 @@ public class MaximumSumSubarrayofSizeK {
 
     }
 }
+
+/*
+time complexity: O(n)
+space complexity: O(1)
+ */
