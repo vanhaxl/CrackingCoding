@@ -20,7 +20,10 @@ public class A_76_MinimumWindowSubstring {
 
         for(int i = 0; i < s.length(); i++) {
             arr[s.charAt(i)]--;
-            if(arr[s.charAt(i)] >= 0) count++; // >= , not > because duplicate (s="aa", t = "aa")
+            //tai sao >= , t co nhieu C, s co 1 c cung tinh
+            // tai vi moi character count tang len, thi tang toi chung nao count = t.length()
+            // => chi tinh nhung thang >= 0 , < 0 la du thua o S, ko tinh nua
+            if(arr[s.charAt(i)] >= 0) count++; // >= , not > because duplicate (s="aa", t = "aa")?? k dup cung phai >=
             while(count == t.length()) { // substring contains all characters int t
                 if(minLen > i - left + 1) {
                     minLen = i - left + 1;
