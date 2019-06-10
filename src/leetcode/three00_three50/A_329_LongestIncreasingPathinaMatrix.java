@@ -8,6 +8,8 @@ public class A_329_LongestIncreasingPathinaMatrix {
                 {6, 6, 8},
                 {2, 1, 1}};
         System.out.println(longestIncreasingPath(arr));
+        System.out.println(Integer.MIN_VALUE);
+        System.out.println(Integer.MAX_VALUE);
     }
 
     public static int longestIncreasingPath(int[][] arr) {
