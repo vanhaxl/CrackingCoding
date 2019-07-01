@@ -1,37 +1,60 @@
-class Solution {
-    public int longestIncreasingPath(int[][] matrix) {
-        if(matrix == null || matrix.length == 0) return 0;
-        int m = matrix.length;
-        int n = matrix[0].length;
+package zzz.test;
 
-        int[][] memo = new int[m][n];
-        int result = 0;
-        for(int i = 0; i< m ; i++){
-            for(int j = 0; j< n; j++){
-                dfs(matrix, i, j, memo, m, n);
-                result = Math.max(result, memo[i][j]);
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+
+class Solution {
+    public static void main(String[] args){
+        List<Integer> list = pathInZigZagTree(8);
+        for(int x: list){
+            System.out.print(x + " ");
+        }
+    }
+    public static List<Integer> pathInZigZagTree(int label) {
+        int[] arr= new int[label];
+        for(int i = 0; i< label ; i++){
+            arr[i] = i+1;
+        }
+        swap(arr, label);
+        int index = 0;
+        for(int i = arr.length-1; i>=0; i--){
+            if(arr[i] == label){
+                index = i;
+                break;
             }
         }
+        List<Integer> listIndex = new LinkedList<>();
+        listIndex.add(index);
+        while(index != 0){
+            index = (index -1)/2;
+            listIndex.add(index);
+        }
+        Collections.reverse(listIndex);
+        List<Integer> result = new ArrayList<>();
+        for(int i: listIndex){
+            result.add(arr[i]);
+        }
         return result;
+
+    }
+    public static void swap(int[] arr, int label){
+        for(int i = 0; Math.pow(2, i) < label; i+=2){
+            reverse(arr, (int) Math.pow(2, i+1) -1, (int) Math.pow(2, i+2) -2);
+        }
+    }
+    public static void reverse(int[] arr, int i, int j){
+        while(j >= arr.length){
+            j--;
+        }
+        while(i<j){
+            int tmp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = tmp;
+            i++; j--;
+        }
     }
 
-    public int dfs(int[][] matrix, int i , int j, int[][] memo, int m, int n){
-        if(i< 0 || i>= m || j<0 || j>=n) return 0;
-        int a=0, b=0, c=0, d=0;
-        if(i+1 < m && matrix[i+1][j] > matrix[i][j]){
-            a = memo[i+1][j] != 0? memo[i+1][j]: 1 + dfs(matrix, i+1, j, memo, m, n);
-        }
-        if(i-1 >=0 && matrix[i-1][j] > matrix[i][j]){
-            b = memo[i-1][j] != 0? memo[i-1][j]:1 + dfs(matrix, i-1, j, memo, m, n);
-        }
 
-        if(j+1 < n && matrix[i][j+1] > matrix[i][j]){
-            c = memo[i][j+1] != 0? memo[i][j+1]: 1 + dfs(matrix, i, j+1, memo, m, n);
-        }
-        if(j-1 < m && matrix[i][j-1] > matrix[i][j]){
-            d = memo[i][j-1] != 0? memo[i][j-1]:1 + dfs(matrix, i, j-1, memo, m, n);
-        }
-        memo[i][j]= Math.max(Math.max(a, b), Math.max(c, d));
-        return memo[i][j];
-    }
 }

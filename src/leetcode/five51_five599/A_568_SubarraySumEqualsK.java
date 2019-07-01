@@ -32,6 +32,21 @@ Solution 1. Brute force. We just need two loops (i, j) and
 test if SUM[i, j] = k.
 Time complexity O(n^2), Space complexity O(1).
 
+//cummulative sum
+public static int subarraySum(int[] nums, int k) {
+        int count = 0;
+        for(int start = 0; start< nums.length; start++){
+            int sum = 0;
+            for(int end = start; end < nums.length; end++){
+                sum += nums[end];
+                if(sum == k){
+                    count ++;
+                }
+            }
+        }
+        return count;
+    }
+
 Solution 2. From solution 1, we know the key to solve this problem is SUM[i, j].
 So if we know SUM[0, i - 1] and SUM[0, j], then we can easily get SUM[i, j].
 To achieve this, we just need to go through the array, calculate the current

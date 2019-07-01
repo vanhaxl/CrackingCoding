@@ -18,7 +18,7 @@ public class A_13_RomanToInteger {
     }
 
     public static void main(String[] args) {
-        String s = "IIX";
+        String s = "IX";
         System.out.println(romanToInt(s));
     }
 

@@ -4,8 +4,8 @@ public class A_4_MedianOfTwoSortedArrays {
     public static void main(String[] args) {
 //        int[] arr2 = {1, 2, 4, 5};
 //        int[] arr = {3, 5, 6, 7, 8, 9};
-        int[] arr2 = {1, 3};
-        int[] arr = {2};
+        int[] arr = {1, 3, 5};
+        int[] arr2 = {2, 4, 6};
         System.out.println(findMedianSortedArrays(arr, arr2)); //1, 2, 3, 4, 5, 5, 6, 7
     }
 
@@ -13,12 +13,7 @@ public class A_4_MedianOfTwoSortedArrays {
         int m = a.length;
         int n = b.length;
         if (m > n) { // tai sao a length phai nho hon b length. Boi vi index out of bound
-            int[] temp = a;
-            a = b;
-            b = temp;
-            int tmp = m;
-            m = n;
-            n = tmp;
+            return findMedianSortedArrays(b, a);
         }
 
         int iMin = 0, iMax = m, halfLen = (m + n + 1) / 2;
